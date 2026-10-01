@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace RegexParser\Transpiler\Target;
+namespace PhpRegex\Transpiler\Target;
 
-use RegexParser\Exception\TranspileException;
-use RegexParser\Node\ClassSetOperationNode;
-use RegexParser\Node\ExtendedCharClassNode;
-use RegexParser\Node\NodeInterface;
-use RegexParser\NodeVisitor\AbstractNodeVisitor;
-use RegexParser\Transpiler\TranspileContext;
+use PhpRegex\Parser\AbstractNodeVisitor;
+use PhpRegex\Parser\Node\ClassSetOperationNode;
+use PhpRegex\Parser\Node\ExtendedCharClassNode;
+use PhpRegex\Parser\Node\NodeInterface;
+use PhpRegex\Transpiler\TranspileContext;
+use PhpRegex\Transpiler\TranspileException;
 
 /**
  * What every target's compiler needs, whatever dialect it writes.
@@ -29,7 +29,7 @@ use RegexParser\Transpiler\TranspileContext;
  *
  * @extends AbstractNodeVisitor<string>
  */
-abstract class AbstractCompilerVisitor extends AbstractNodeVisitor
+abstract class AbstractTargetPrinter extends AbstractNodeVisitor
 {
     public function __construct(protected readonly TranspileContext $context) {}
 
@@ -48,7 +48,7 @@ abstract class AbstractCompilerVisitor extends AbstractNodeVisitor
     /**
      * Refuse a construct the target has no way to express.
      *
-     * @throws TranspileException
+     * @throws \PhpRegex\Transpiler\TranspileException
      */
     protected function unsupported(string $message, NodeInterface $node): string
     {

@@ -11,15 +11,15 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace RegexParser\Transpiler\Target;
+namespace PhpRegex\Transpiler\Target;
 
-use RegexParser\Node\RegexNode;
-use RegexParser\Transpiler\TranspileContext;
+use PhpRegex\Parser\Node\RegexNode;
+use PhpRegex\Transpiler\TranspileContext;
 
 /**
  * Contract for transpiling a Regex AST into a target dialect.
  */
-interface TranspileTargetInterface
+interface TargetInterface
 {
     public function getName(): string;
 

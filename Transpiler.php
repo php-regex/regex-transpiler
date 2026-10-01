@@ -11,15 +11,15 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace RegexParser\Transpiler;
+namespace PhpRegex\Transpiler;
 
-use RegexParser\RegexParser;
-use RegexParser\Transpiler\Target\TargetRegistry;
+use PhpRegex\Parser\RegexParser;
+use PhpRegex\Transpiler\Target\TargetRegistry;
 
 /**
  * Transpiles PCRE regex literals to other target dialects.
  */
-final readonly class RegexTranspiler
+final readonly class Transpiler
 {
     public function __construct(private RegexParser $regex, private TargetRegistry $targets = new TargetRegistry()) {}
 
